@@ -1,0 +1,14 @@
+{
+  "id": "MWP-20260712-001",
+  "type": "project_decision",
+  "destination": [
+    "memory/YYYY-MM-DD.md"
+  ],
+  "source": "User chat 2026-07-12 10:30",
+  "summary": "The weekly content workflow is now owned by the content agent, while the user reviews and publishes final drafts.",
+  "confidence": "high",
+  "approval": "auto-safe",
+  "reason": "The user explicitly described the current workflow and it affects future task routing.",
+  "expiry": "daily",
+  "expected_validator_result": "pass"
+}

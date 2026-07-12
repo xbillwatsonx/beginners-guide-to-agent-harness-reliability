@@ -1,0 +1,27 @@
+{
+  "id": "CRP-20260712-001",
+  "task_id": "OP-001",
+  "source": "Session checkpoint after validation",
+  "goal": "Finish the first reliability runbook draft.",
+  "status": "in_progress",
+  "decisions": [
+    "Keep the first version manual and beginner-friendly."
+  ],
+  "changed_paths": [
+    "README.md",
+    "runbook/agent-harness-reliability-runbook.md"
+  ],
+  "validation_done": [
+    "Package validator passed."
+  ],
+  "blockers": [],
+  "next_action": "Review the wording for beginner clarity.",
+  "do_not_redo": [
+    "Do not recreate the README or runbook from scratch."
+  ],
+  "evidence": [
+    "README.md",
+    "runbook/agent-harness-reliability-runbook.md"
+  ],
+  "expected_validator_result": "pass"
+}

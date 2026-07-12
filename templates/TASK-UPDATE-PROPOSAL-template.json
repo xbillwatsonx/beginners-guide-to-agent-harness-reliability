@@ -1,0 +1,15 @@
+{
+  "id": "TUP-YYYYMMDD-001",
+  "task_id": "OP-001",
+  "type": "task_status_update",
+  "source": "User chat YYYY-MM-DD HH:MM",
+  "status_change": "ACTIVE to COMPLETE",
+  "summary": "Short task closeout.",
+  "next_step": "What happens next.",
+  "evidence": [
+    "path/or/source"
+  ],
+  "approval": "auto-safe",
+  "review_state": "not-needed",
+  "expected_validator_result": "pass"
+}

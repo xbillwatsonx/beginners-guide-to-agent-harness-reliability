@@ -1,0 +1,19 @@
+{
+  "id": "CRP-YYYYMMDD-001",
+  "task_id": "OP-001",
+  "source": "Session checkpoint",
+  "goal": "Resume the current task safely.",
+  "status": "in_progress",
+  "decisions": [],
+  "changed_paths": [],
+  "validation_done": [],
+  "blockers": [],
+  "next_action": "State the next concrete action.",
+  "do_not_redo": [
+    "List completed work here."
+  ],
+  "evidence": [
+    "Add source or file path here."
+  ],
+  "expected_validator_result": "pass"
+}

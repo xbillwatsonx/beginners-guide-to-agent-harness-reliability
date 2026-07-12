@@ -1,0 +1,14 @@
+{
+  "id": "MWP-YYYYMMDD-001",
+  "type": "project_decision",
+  "destination": [
+    "memory/YYYY-MM-DD.md"
+  ],
+  "source": "User chat YYYY-MM-DD HH:MM",
+  "summary": "Short write-ready summary.",
+  "confidence": "high",
+  "approval": "auto-safe",
+  "reason": "Why this route is correct.",
+  "expiry": "daily",
+  "expected_validator_result": "pass"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "CRP-20260712-002",
+  "task_id": "OP-002",
+  "source": "Session checkpoint before final verification",
+  "goal": "Finish a small documentation cleanup.",
+  "status": "in_progress",
+  "decisions": [
+    "Keep the cleanup limited to documentation wording."
+  ],
+  "changed_paths": [
+    "runbook/example.md"
+  ],
+  "validation_done": [],
+  "blockers": [],
+  "next_action": "Run the package validator before closing the task.",
+  "do_not_redo": [
+    "Do not rewrite the already edited section unless validation shows a problem."
+  ],
+  "evidence": [
+    "runbook/example.md"
+  ],
+  "expected_validator_result": "warn"
+}

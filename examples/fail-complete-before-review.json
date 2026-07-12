@@ -1,0 +1,15 @@
+{
+  "id": "TUP-20260712-001",
+  "task_id": "OP-003",
+  "type": "task_status_update",
+  "source": "Agent draft before user review",
+  "status_change": "ACTIVE to COMPLETE",
+  "summary": "The agent drafted a public runbook but no human reviewed it yet.",
+  "next_step": "Request review before marking complete.",
+  "evidence": [
+    "runbook/public-draft.md"
+  ],
+  "approval": "needs-review",
+  "review_state": "pending",
+  "expected_validator_result": "fail"
+}

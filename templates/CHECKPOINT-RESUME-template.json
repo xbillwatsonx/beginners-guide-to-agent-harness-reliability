@@ -1,0 +1,25 @@
+{
+  "id": "CRP-YYYYMMDD-001",
+  "task_id": "OP-001",
+  "source": "Session checkpoint",
+  "goal": "Concrete goal being resumed.",
+  "status": "in_progress",
+  "decisions": [
+    "Important decision already made."
+  ],
+  "changed_paths": [
+    "path/changed.md"
+  ],
+  "validation_done": [
+    "Command or check that passed."
+  ],
+  "blockers": [],
+  "next_action": "The next concrete action.",
+  "do_not_redo": [
+    "Work already verified."
+  ],
+  "evidence": [
+    "path/or/source"
+  ],
+  "expected_validator_result": "pass"
+}
