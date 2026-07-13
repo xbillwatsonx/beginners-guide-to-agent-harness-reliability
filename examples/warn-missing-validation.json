@@ -1,6 +1,7 @@
 {
   "id": "CRP-20260712-002",
-  "task_id": "OP-002",
+  "type": "checkpoint_resume",
+  "task_id": "TASK-002",
   "source": "Session checkpoint before final verification",
   "goal": "Finish a small documentation cleanup.",
   "status": "in_progress",

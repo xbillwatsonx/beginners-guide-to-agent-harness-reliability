@@ -20,7 +20,8 @@ Use this JSON shape:
 
 {
   "id": "CRP-YYYYMMDD-001",
-  "task_id": "OP-001",
+  "type": "checkpoint_resume",
+  "task_id": "TASK-001",
   "source": "Session checkpoint",
   "goal": "Concrete goal being resumed.",
   "status": "in_progress",

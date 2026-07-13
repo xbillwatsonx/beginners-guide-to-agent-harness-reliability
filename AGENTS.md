@@ -37,5 +37,7 @@ Before any public release, also do a human public-readiness review for:
 - no unsupported automation claims
 - no instructions that mark unreviewed work complete
 - examples that match the validator behavior
+- `python3 validate-agent-harness-reliability.py .` or `python validate-agent-harness-reliability.py .` passes
+- `python3 make-release-zip.py --version <tag>` or `python make-release-zip.py --version <tag>` builds the archive
 
 Do not publish, push, tag, or package a release unless the user explicitly asks.

@@ -1,0 +1,16 @@
+{
+  "id": "TUP-20260712-003",
+  "task_id": "TASK-004",
+  "type": "task_status_update",
+  "source": "Human review after validation",
+  "status_change": "READY_FOR_REVIEW to COMPLETE",
+  "summary": "The draft was reviewed and accepted.",
+  "next_step": "Publish or archive according to the project workflow.",
+  "evidence": [
+    "review note",
+    "validation output"
+  ],
+  "approval": "reviewed",
+  "review_state": "reviewed",
+  "expected_validator_result": "pass"
+}

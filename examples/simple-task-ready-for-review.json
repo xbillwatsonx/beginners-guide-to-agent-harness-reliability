@@ -1,0 +1,16 @@
+{
+  "id": "TUP-20260712-002",
+  "task_id": "TASK-004",
+  "type": "task_status_update",
+  "source": "Agent draft after local validation",
+  "status_change": "ACTIVE to READY_FOR_REVIEW",
+  "summary": "The agent prepared a draft and validation passed.",
+  "next_step": "Ask a human to review before marking complete.",
+  "evidence": [
+    "runbook/public-draft.md",
+    "validation output"
+  ],
+  "approval": "needs-review",
+  "review_state": "pending",
+  "expected_validator_result": "pass"
+}

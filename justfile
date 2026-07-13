@@ -15,13 +15,13 @@ menu:
 validate:
     python3 validate-agent-harness-reliability.py .
     python3 -m py_compile validate-agent-harness-reliability.py
+    python3 -m py_compile make-release-zip.py
     rm -rf __pycache__
 
 # Build downloadable zip package.
 package:
-    mkdir -p downloads
-    rm -f downloads/beginners-guide-to-agent-harness-reliability-v*.zip
-    zip -r downloads/beginners-guide-to-agent-harness-reliability-v0.1.0.zip . -x './.git/*' './downloads/*' './__pycache__/*'
+    just validate
+    python3 make-release-zip.py --version v0.1.1
 
 # Quick context check for agents before editing.
 agent-preflight:

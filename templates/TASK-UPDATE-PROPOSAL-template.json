@@ -1,15 +1,15 @@
 {
   "id": "TUP-YYYYMMDD-001",
-  "task_id": "OP-001",
+  "task_id": "TASK-001",
   "type": "task_status_update",
   "source": "User chat YYYY-MM-DD HH:MM",
-  "status_change": "ACTIVE to COMPLETE",
-  "summary": "Short task closeout.",
-  "next_step": "What happens next.",
+  "status_change": "ACTIVE to READY_FOR_REVIEW",
+  "summary": "Short summary of work ready for review.",
+  "next_step": "Request human review before marking complete.",
   "evidence": [
     "path/or/source"
   ],
-  "approval": "auto-safe",
-  "review_state": "not-needed",
+  "approval": "needs-review",
+  "review_state": "pending",
   "expected_validator_result": "pass"
 }

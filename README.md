@@ -2,6 +2,8 @@
 
 `beginners-guide-to-agent-harness-reliability` helps non-technical users make their AI agents more reliable with simple rules, checklists, examples, and copy-paste prompts.
 
+An agent harness is the small set of rules, templates, checks, and handoff notes that keep an AI agent from losing track of work.
+
 The goal is not to build a complicated software platform. The goal is to help people teach an agent to:
 
 - write down important decisions
@@ -25,16 +27,25 @@ This runbook gives you a lightweight reliability layer for agent work:
 
 ## What Is Included
 
-- `runbook/agent-harness-reliability-runbook.md` - full beginner-friendly guide.
-- `runbook/quick-start-card.md` - one-page starter flow.
+- [`runbook/agent-harness-reliability-runbook.md`](runbook/agent-harness-reliability-runbook.md) - full beginner-friendly guide.
+- [`runbook/quick-start-card.md`](runbook/quick-start-card.md) - one-page starter flow.
 - `AGENTS.md` - editing and release rules for agents working in this package.
 - `prompts/` - copy-paste prompts for walking an agent through setup.
 - `templates/` - reusable JSON templates for memory proposals, task updates, and checkpoint records.
 - `starter-kit/` - small starter rules and checkpoint files.
 - `examples/` - passing, warning, and failure examples for the validator.
-- `validate-agent-harness-reliability.py` - dependency-free package checker.
-- `CHANGELOG.md` - package history.
-- `LICENSE` - MIT License.
+- [`validate-agent-harness-reliability.py`](validate-agent-harness-reliability.py) - dependency-free package checker.
+- [`make-release-zip.py`](make-release-zip.py) - dependency-free release zip builder.
+- [`CHANGELOG.md`](CHANGELOG.md) - package history.
+- [`LICENSE`](LICENSE) - MIT License.
+
+## Requirements
+
+- Python 3.10 or newer.
+- On Windows, use `python` if that is how Python is installed.
+- On macOS/Linux, use `python3` if `python` is not available.
+- `just` is optional. The included `justfile` is a convenience layer for POSIX-like shells and may need Git Bash, WSL, or another shell on Windows.
+- No external Python packages are required.
 
 ## Quick Start
 
@@ -48,10 +59,22 @@ This runbook gives you a lightweight reliability layer for agent work:
 python3 validate-agent-harness-reliability.py .
 ```
 
+On Windows, this may be:
+
+```powershell
+python validate-agent-harness-reliability.py .
+```
+
 If you have `just` installed, you can also run:
 
 ```bash
 just agent-verify
+```
+
+To build the release zip without external `zip` tools:
+
+```bash
+python3 make-release-zip.py --version v0.1.1
 ```
 
 ## Success Looks Like
