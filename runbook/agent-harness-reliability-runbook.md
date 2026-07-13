@@ -119,9 +119,13 @@ After review, use a separate completion update:
   "evidence": ["review note", "validation output"],
   "approval": "reviewed",
   "review_state": "reviewed",
+  "reviewed_by": "Human reviewer",
+  "review_reference": "Review note or approval message",
   "expected_validator_result": "pass"
 }
 ```
+
+The validator checks that a completion record includes a review trail. It cannot prove who performed the review, so do not treat `reviewed_by` as authentication.
 
 ## Step 4: Add Checkpoint/Resume Records
 

@@ -12,5 +12,7 @@
   ],
   "approval": "reviewed",
   "review_state": "reviewed",
+  "reviewed_by": "Human reviewer",
+  "review_reference": "Review note or approval message",
   "expected_validator_result": "pass"
 }

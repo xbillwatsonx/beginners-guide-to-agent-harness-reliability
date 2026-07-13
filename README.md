@@ -74,7 +74,13 @@ just agent-verify
 To build the release zip without external `zip` tools:
 
 ```bash
-python3 make-release-zip.py --version v0.1.1
+python3 make-release-zip.py --version v0.1.2
+```
+
+On Windows, this may be:
+
+```powershell
+python make-release-zip.py --version v0.1.2
 ```
 
 ## Success Looks Like

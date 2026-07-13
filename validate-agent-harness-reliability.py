@@ -199,6 +199,11 @@ def validate_tracker_update(item: dict[str, Any], path: Path, root: Path) -> tup
     if "complete" in status_change:
         if item.get("approval") != "reviewed" or item.get("review_state") != "reviewed":
             errors.append(f"{label(path, root)}: COMPLETE status changes require approval=reviewed and review_state=reviewed")
+        for field in ["reviewed_by", "review_reference"]:
+            if field not in item:
+                errors.append(f"{label(path, root)}: COMPLETE status changes require {field}")
+            else:
+                errors.extend(require_non_empty_string(item, path, root, field))
     if "complete" not in status_change and "ready_for_review" in status_change and item.get("approval") != "needs-review":
         warnings.append(f"{label(path, root)}: READY_FOR_REVIEW updates should normally use approval=needs-review")
     return errors, warnings

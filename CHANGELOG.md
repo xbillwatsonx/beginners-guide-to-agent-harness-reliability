@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.1.2 - 2026-07-12
+
+- Changed release packaging to use tracked files only.
+- Made the release zip builder refuse dirty or untracked release trees by default.
+- Made the release zip builder run validation before packaging.
+- Added SHA-256 checksum output for release assets.
+- Required `--version` for release packaging.
+- Added review trail fields for completion records: `reviewed_by` and `review_reference`.
+- Clarified that validator review fields record evidence but cannot authenticate a human reviewer.
+
 ## v0.1.1 - 2026-07-12
 
 - Changed task-update defaults from direct completion to `READY_FOR_REVIEW`.
