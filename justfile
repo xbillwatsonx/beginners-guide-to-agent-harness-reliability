@@ -21,7 +21,7 @@ validate:
 # Build downloadable zip package.
 package:
     just validate
-    python3 make-release-zip.py --version v0.1.2
+    python3 make-release-zip.py --version v0.1.3
 
 # Quick context check for agents before editing.
 agent-preflight:

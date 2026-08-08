@@ -74,13 +74,13 @@ just agent-verify
 To build the release zip without external `zip` tools:
 
 ```bash
-python3 make-release-zip.py --version v0.1.2
+python3 make-release-zip.py --version v0.1.3
 ```
 
 On Windows, this may be:
 
 ```powershell
-python make-release-zip.py --version v0.1.2
+python make-release-zip.py --version v0.1.3
 ```
 
 ## Success Looks Like
@@ -100,6 +100,10 @@ You are done with the first setup when:
 This runbook does not ask your agent to delete files, publish content, send messages, expose credentials, or automate every memory write.
 
 Start manual. Let the workflow prove itself. Add automation only after you trust the examples.
+
+## Related Guide
+
+For `DIRECTORY_ATLAS.md`, file-placement rules, and Path Resolution Preflight before creating or moving durable files, use the [Beginner's Guide to Agent Organization](https://github.com/xbillwatsonx/beginners-guide-to-agent-organization). Those organization controls belong in that guide; this runbook stays focused on memory, task updates, checkpoints, and review trails.
 
 ## License
 

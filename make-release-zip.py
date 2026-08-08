@@ -91,7 +91,7 @@ def build(root: Path, version: str) -> tuple[Path, Path, list[str]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build release zip from tracked files only.")
-    parser.add_argument("--version", required=True, help="Release version, such as v0.1.2.")
+    parser.add_argument("--version", required=True, help="Release version, such as v0.1.3.")
     parser.add_argument("--root", default=".", help="Package root.")
     args = parser.parse_args()
 

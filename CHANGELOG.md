@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.3 - 2026-08-08
+
+- Added one related-guide link directing folder placement, `DIRECTORY_ATLAS.md`, and Path Resolution Preflight readers to the Beginner's Guide to Agent Organization.
+- Kept this runbook focused on memory, task updates, checkpoints, and review trails.
+
 ## v0.1.2 - 2026-07-12
 
 - Changed release packaging to use tracked files only.
