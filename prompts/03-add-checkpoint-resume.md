@@ -36,4 +36,12 @@ Use this JSON shape:
 }
 
 Do not create automation. Start with a manual template and one example.
+
+In addition to the template, install the full checkpoint/resume behavior:
+
+1. **When to create a checkpoint**: after an interruption, compaction, delegation, or before a meaningful pause.
+2. **When to update a checkpoint**: after completing the next_action, when new decisions are made, when validation results change, or before another pause or handoff.
+3. **How to resume from a checkpoint**: read the latest checkpoint, check whether the evidence and validation are still current, do the next_action, and update the checkpoint before pausing again. Re-verify if files, dependencies, or assumptions changed. Do not redo work listed in do_not_redo unless something changed or the evidence is stale.
+
+Create a short resume procedure the agent can follow every time it starts a new session or resumes after a pause.
 ```

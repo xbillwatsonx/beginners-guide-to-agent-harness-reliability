@@ -49,7 +49,9 @@ Poor durable memory candidates:
 
 ## Step 2: Use A Memory Write Proposal
 
-Before writing important memory, ask the agent to make a small proposal:
+Before writing important memory, ask the agent to make a small proposal. A memory write proposal is a preview of what the agent wants to remember before it changes any memory file. It lets you review what will be saved before it becomes permanent.
+
+You do not need to write this JSON by hand. The agent creates the proposal and shows it to you. You just review it and approve or reject it.
 
 ```json
 {
@@ -65,6 +67,14 @@ Before writing important memory, ask the agent to make a small proposal:
   "expected_validator_result": "pass"
 }
 ```
+
+A few things to know about the JSON format:
+
+- Curly braces `{ }` wrap the whole record.
+- Each field is a key (in quotes) followed by a colon and a value.
+- Commas separate fields. The last field does not need a trailing comma.
+- Values in quotes are text. Square brackets `[ ]` hold a list of values.
+- If you see a red error when the agent writes JSON, it usually means a missing comma, a missing quote, or a missing closing bracket.
 
 This makes the agent answer a few boring but important questions:
 
@@ -105,6 +115,17 @@ The most important rule:
 
 > Do not mark unreviewed work complete.
 
+### What evidence should accompany a task ready for review?
+
+When a task moves to READY_FOR_REVIEW, include at minimum:
+
+- **Deliverable location**: the file path or URL where the finished work lives.
+- **Validation command and result**: what check was run and what it returned (e.g., `just agent-verify` passed, `python3 validate.py` exited 0).
+- **Changed paths**: which files were created or modified.
+- **Known limitations**: anything that is incomplete, uncertain, or needs human judgment.
+
+Do not mark a task ready for review without this evidence. A vague "validation output" entry is not enough.
+
 After review, use a separate completion update:
 
 ```json
@@ -126,6 +147,16 @@ After review, use a separate completion update:
 ```
 
 The validator checks that a completion record includes a review trail. It cannot prove who performed the review, so do not treat `reviewed_by` as authentication.
+
+### What a realistic review trail looks like
+
+The completion example above uses placeholder values for the review trail. In practice, fill them in with concrete, traceable values:
+
+- `reviewed_by`: use a name or role, not "Human reviewer" (e.g., `"Bill Watson"` or `"human:bill"`).
+- `review_reference`: use a concrete reference ID or path (e.g., `"PR #12 approval comment"` or `"telegram:approval:2026-08-15"`).
+- `source`: include a date and context (e.g., `"Human review 2026-08-15 14:30 ET after PR #12"`).
+
+A review trail that says `"Human reviewer"` and `"Review note or approval message"` demonstrates schema shape but is not a real review event.
 
 ## Step 4: Add Checkpoint/Resume Records
 
@@ -162,6 +193,22 @@ Resume procedure:
 
 `do_not_redo` is not a command to skip all verification. It means “do not repeat finished work unless something changed or the evidence is stale.”
 
+### When to create and update checkpoints
+
+Create a checkpoint:
+- after an interruption or compaction
+- before a meaningful pause
+- before a delegation or handoff
+- when you are about to lose context
+
+Update a checkpoint:
+- after completing the `next_action`
+- when new decisions are made
+- when validation results change
+- before another pause or handoff
+
+Do not wait for a perfect moment. A rough checkpoint is better than no checkpoint.
+
 ## Step 5: Keep Validation Small
 
 You do not need a big test system at first.
@@ -177,6 +224,44 @@ Start with a simple checker that confirms:
 Then add real examples when something goes right or wrong.
 
 The included validator is a small starter checker, not a full security scanner. It can catch missing fields, invalid JSON, unsafe completion defaults, and a few obvious private markers. It cannot prove that a repo contains no secrets.
+
+### How to run the validator
+
+The validator script is included in this package. From the repo root:
+
+```bash
+python3 validate-agent-harness-reliability.py
+```
+
+Or pass a specific package root:
+
+```bash
+python3 validate-agent-harness-reliability.py /path/to/your/package
+```
+
+### Validator output and exit codes
+
+- `Validation failed`: one or more required checks failed. The script exits with status 1. Errors are printed with details about which record or file failed.
+- `Validation passed with expected warnings`: all required checks passed, but advisory warnings were found. The script exits with status 0.
+- `Validation passed`: all checks passed with no warnings. The script exits with status 0.
+
+### What the validator checks
+
+- Required fixture files exist and are valid JSON.
+- Memory write proposals include a non-empty `source` field.
+- Checkpoint records include `next_action` and `do_not_redo` fields.
+- Task status updates with `status_change` ending in `COMPLETE` include a review trail (`reviewed_by`, `review_reference`, `review_state: "reviewed"`).
+- Expected validator results (`expected_validator_result`) match the actual validation outcome for each fixture.
+- Public package files pass a limited hygiene marker scan.
+
+### What the validator does not check
+
+- It cannot prove who performed a review. `reviewed_by` is a label, not authentication.
+- It does not scan for secrets in arbitrary file contents.
+- It does not validate the semantic correctness of field values beyond the checked rules.
+- It does not run external commands or test real agent behavior.
+
+After running the validator, review any warnings or failures and fix the underlying records before relying on them.
 
 ## Step 6: Review Before Automating
 
